@@ -9,12 +9,7 @@ export default class PortfolioContainer extends Component {
     this.state = {
       pageTitle: "Welcome to my portfolio",
       isLoading: false,
-      data: [
-        {title: "Quip", category: "eCommerce", slug: "quip"},
-        {title: "Eventbrite", category: "Scheduling", slug: "eventbrite"},
-        {title: "Ministry Safe", category: "Enterprise", slug: "ministry-safe"},
-        {title: "SwingAway", category: "eCommerce", slug: "swingaway"}
-      ]
+      data: []
     }
   }
 
@@ -23,7 +18,9 @@ export default class PortfolioContainer extends Component {
     axios.get('https://jingledjango.devcamp.space/portfolio/portfolio_items')
       .then(response => {
         // handle success
-        console.log("response data", response);
+        this.setState({
+          data: response.data.portfolio_items
+        })
       })
       .catch(error => {
         // handle error
@@ -33,7 +30,7 @@ export default class PortfolioContainer extends Component {
 
   PortfolioItems = () => {
     return this.state.data.map(item => {
-      return <PortfolioItem title={item.title} url={"google.com"} slug={item.slug} />
+      return <PortfolioItem title={item.name} url={item.url} slug={item.id} />
     })
   }
 
@@ -45,13 +42,14 @@ export default class PortfolioContainer extends Component {
     })
   }
 
+  componentDidMount() {
+    this.getPortfolioItems()
+  }
+
   render() {
     if (this.state.isLoading) {
       return <div>Loading...</div>
     }
-
-    this.getPortfolioItems()
-
     return (
       <div>
         <h2>{this.state.pageTitle}</h2>
