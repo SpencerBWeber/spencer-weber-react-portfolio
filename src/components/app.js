@@ -10,6 +10,8 @@ import Home from './pages/home'
 import About from './pages/about'
 import Contact from './pages/contact'
 import Blog from './pages/blog'
+import PortfolioDetail from './portfolio/portfolio-detail'
+
 
 import NavigationComponent from "./navigation/navigation-container"
 
@@ -17,6 +19,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
+        <h1>Spencer Weber's Portfolio</h1>
+        <div>{moment().format("MMMM Do YYYY, h:mm:ss a")}</div>
 
         <Router>
           <div>
@@ -27,13 +31,10 @@ export default class App extends Component {
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/blog" component={Blog} />
-
+              <Route path="/portfolio/:slug" component={PortfolioDetail}/>
             </Switch>
           </div>
         </Router>
-
-        <h1>Spencer Weber's Portfolio</h1>
-        <div>{moment().format("MMMM Do YYYY, h:mm:ss a")}</div>
 
       </div>
     );
