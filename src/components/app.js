@@ -6,6 +6,8 @@ import {
   Route
 } from 'react-router-dom'
 
+import Home from './pages/home'
+import About from './pages/about'
 import PortfolioComponent from "./portfolio/portfolio-container";
 import NavigationComponent from "./navigation/navigation-container"
 
@@ -14,13 +16,13 @@ export default class App extends Component {
     return (
       <div className="app">
 
-
         <Router>
           <div>
             <NavigationComponent />
 
             <Switch>
-              <Route exact path="/" component='' />
+              <Route exact path="/" component={Home} />
+              <Route path="/about-me" component={About} />
             </Switch>
           </div>
         </Router>
