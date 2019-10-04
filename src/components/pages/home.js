@@ -3,7 +3,7 @@ import PortfolioComponent from '../portfolio/portfolio-container'
 
 const Home = () => {
   return (
-    <div className="">
+    <div>
       <h2>Homepage</h2>
       <PortfolioComponent />
     </div>
