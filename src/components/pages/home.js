@@ -1,9 +1,11 @@
 import React from 'react'
+import PortfolioComponent from '../portfolio/portfolio-container'
 
 const Home = () => {
   return (
     <div className="">
-      Home page
+      <h2>Homepage</h2>
+      <PortfolioComponent />
     </div>
   )
 }

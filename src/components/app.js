@@ -11,7 +11,6 @@ import About from './pages/about'
 import Contact from './pages/contact'
 import Blog from './pages/blog'
 
-import PortfolioComponent from "./portfolio/portfolio-container";
 import NavigationComponent from "./navigation/navigation-container"
 
 export default class App extends Component {
@@ -35,7 +34,7 @@ export default class App extends Component {
 
         <h1>Spencer Weber's Portfolio</h1>
         <div>{moment().format("MMMM Do YYYY, h:mm:ss a")}</div>
-        <PortfolioComponent />
+
       </div>
     );
   }
