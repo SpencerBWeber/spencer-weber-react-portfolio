@@ -26,7 +26,7 @@
       padding-right: 100px;
 
       .subtitle {
-        transition: 1s ease-in-out;
+        transition: 0.3s ease-in-out;
         color: transparent;
       }
     }
@@ -41,4 +41,9 @@
       margin-bottom: 20px;
     }
   }
+}
+
+.image-blur {
+  transition: 0.3s;
+  filter: brightness(10%);
 }
