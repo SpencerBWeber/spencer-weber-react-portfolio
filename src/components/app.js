@@ -11,7 +11,7 @@ import NoMatch from "./pages/no-match";
 export default class App extends Component {
   render() {
     return (
-      <div className="app">
+      <div className="container">
         <Router>
           <div>
             <NavigationComponent />
