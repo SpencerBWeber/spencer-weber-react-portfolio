@@ -32,6 +32,12 @@ export default class App extends Component {
     });
   };
 
+  handleSuccessfulLogout = () => {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    });
+  };
+
   checkLoginStatus = () => {
     return axios
       .get("https://api.devcamp.space/logged_in", {
@@ -75,7 +81,10 @@ export default class App extends Component {
       <div className="container">
         <Router>
           <div>
-            <NavigationComponent loggedInStatus={this.state.loggedInStatus} />
+            <NavigationComponent
+              loggedInStatus={this.state.loggedInStatus}
+              handleSuccessfulLogout={this.handleSuccessfulLogout}
+            />
 
             <h2>{this.state.loggedInStatus}</h2>
 
