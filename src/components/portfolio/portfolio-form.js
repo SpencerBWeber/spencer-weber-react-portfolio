@@ -17,7 +17,14 @@ export default class PortfolioForm extends Component {
   }
 
   handleChange = event => {
-    console.log(event);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    console.log("event", event);
+    event.preventDefault();
   };
 
   render() {
@@ -25,7 +32,7 @@ export default class PortfolioForm extends Component {
       <div className="">
         <h1>PortfolioForm</h1>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <input
               type="text"
