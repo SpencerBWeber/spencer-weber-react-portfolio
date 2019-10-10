@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import PorfolioSidebarList from "../portfolio/portfolio-sidebar-list";
+import PortfolioSidebarList from "../portfolio/portfolio-sidebar-list";
 import PortfolioForm from "../portfolio/portfolio-form";
 
 export default class PortfolioManager extends Component {
@@ -52,7 +52,7 @@ export default class PortfolioManager extends Component {
           />
         </div>
         <div className="right-column">
-          <PorfolioSidebarList data={this.state.portfolioItems} />
+          <PortfolioSidebarList data={this.state.portfolioItems} />
         </div>
       </div>
     );
