@@ -9,7 +9,7 @@ export default class PortfolioForm extends Component {
       name: "",
       description: "",
       url: "",
-      category: "",
+      category: "eCommerce",
       position: "",
       thumb_image: "",
       banner_image: "",
@@ -36,6 +36,7 @@ export default class PortfolioForm extends Component {
   };
 
   handleSubmit = event => {
+    event.preventDefault();
     axios
       .post(
         "https://jingledjango.devcamp.space/portfolio/portfolio_items",
@@ -43,13 +44,12 @@ export default class PortfolioForm extends Component {
         { withCredentials: true }
       )
       .then(response => {
+        this.props.handleSuccessfulFormSubmission(response.data.portfolioItem);
         console.log("response", response);
       })
       .catch(error => {
         console.log("portfolio form handle submit error", error);
       });
-
-    event.preventDefault();
   };
 
   render() {
@@ -95,7 +95,7 @@ export default class PortfolioForm extends Component {
             </select>
           </div>
           <div>
-            <input
+            <textarea
               type="text"
               name="description"
               placeholder="Portfolio Item description"
