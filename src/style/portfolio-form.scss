@@ -1,8 +1,7 @@
 .portfolio-form-wrapper {
-  display: grid;
+  @include base-grid();
   grid-template-columns: 1fr;
   padding: 42px;
-  grid-gap: 21px;
 
   @include input-element();
   input {
