@@ -47,11 +47,6 @@ export default class App extends Component {
       .then(response => {
         const loggedIn = response.data.logged_in;
         const loggedInStatus = this.state.loggedInStatus;
-
-        // If loggedIn and status LOGGED_IN => return data
-        // if loggedIn status NOT_LOGGED_IN => update state
-        // if !loggedIn and status LOGGED_IN => update state
-
         if (loggedIn && loggedInStatus === "LOGGED_IN") {
           return loggedIn;
         } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
