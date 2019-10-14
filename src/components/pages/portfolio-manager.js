@@ -46,7 +46,11 @@ export default class PortfolioManager extends Component {
       });
   };
 
-  handleSuccessfulFormSubmission = portfolioItem => {
+  handleEditFormSubmission = () => {
+    this.getPortfolioItems();
+  };
+
+  handleNewFormSubmission = portfolioItem => {
     this.setState({
       portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
     });
@@ -74,16 +78,17 @@ export default class PortfolioManager extends Component {
       });
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.getPortfolioItems();
-  }
+  };
 
   render() {
     return (
       <div className="portfolio-manager-wrapper">
         <div className="left-column">
           <PortfolioForm
-            handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
+            handleNewFormSubmission={this.handleNewFormSubmission}
+            handleEditFormSubmission={this.handleEditFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
             clearPortfolioToEdit={this.clearPortfolioToEdit}
             portfolioToEdit={this.state.portfolioToEdit}

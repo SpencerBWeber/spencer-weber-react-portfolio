@@ -43,9 +43,9 @@ export default class PortfolioContainer extends Component {
     });
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.getPortfolioItems();
-  }
+  };
 
   render() {
     if (this.state.isLoading) {

@@ -10,13 +10,13 @@ export default class PortfolioItem extends Component {
     };
   }
 
-  handleMouseEnter() {
+  handleMouseEnter = () => {
     this.setState({ portfolioItemClass: "image-blur" });
-  }
+  };
 
-  handleMouseLeave() {
+  handleMouseLeave = () => {
     this.setState({ portfolioItemClass: "" });
-  }
+  };
 
   render() {
     const { id, description, thumb_image_url, logo_url } = this.props.item;
