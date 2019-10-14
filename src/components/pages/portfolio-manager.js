@@ -14,6 +14,12 @@ export default class PortfolioManager extends Component {
     };
   }
 
+  clearPortfolioToEdit = () => {
+    this.setState({
+      portfolioToEdit: {}
+    });
+  };
+
   handleEditClick = portfolioItem => {
     this.setState({
       portfolioToEdit: portfolioItem
@@ -50,7 +56,7 @@ export default class PortfolioManager extends Component {
     console.log("handleFormSubmissionError error", error);
   };
 
-  getPortfolioItems() {
+  getPortfolioItems = () => {
     axios
       .get(
         "https://jingledjango.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc",
@@ -66,7 +72,7 @@ export default class PortfolioManager extends Component {
       .catch(error => {
         console.log("error in getPortfolioItems", error);
       });
-  }
+  };
 
   componentDidMount() {
     this.getPortfolioItems();
@@ -79,8 +85,11 @@ export default class PortfolioManager extends Component {
           <PortfolioForm
             handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
+            clearPortfolioToEdit={this.clearPortfolioToEdit}
+            portfolioToEdit={this.state.portfolioToEdit}
           />
         </div>
+
         <div className="right-column">
           <PortfolioSidebarList
             handleDeleteClick={this.handleDeleteClick}
