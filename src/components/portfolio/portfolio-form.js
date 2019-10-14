@@ -30,7 +30,19 @@ export default class PortfolioForm extends Component {
   }
 
   deleteImage = imageType => {
-    console.log("delete image", imageType);
+    axios
+      .delete(
+        `https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state.id}?image_type=${imageType}`,
+        { withCredentials: true }
+      )
+      .then(response => {
+        this.setState({
+          [`${imageType}_url`]: ""
+        });
+      })
+      .catch(error => {
+        console.log("DeleteImage error", error);
+      });
   };
 
   componentDidUpdate = () => {
@@ -226,7 +238,7 @@ export default class PortfolioForm extends Component {
               <div className="image-removal-link">
                 <a
                   className="remove-icon"
-                  onClick={() => this.deleteImage("thumb_img")}
+                  onClick={() => this.deleteImage("thumb_image")}
                 >
                   <FontAwesomeIcon icon="eraser" />
                 </a>
@@ -250,7 +262,7 @@ export default class PortfolioForm extends Component {
               <div className="image-removal-link">
                 <a
                   className="remove-icon"
-                  onClick={() => this.deleteImage("banner_img")}
+                  onClick={() => this.deleteImage("banner_image")}
                 >
                   <FontAwesomeIcon icon="eraser" />
                 </a>
