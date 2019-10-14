@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DropzoneComponent from "react-dropzone-component";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
@@ -27,6 +28,10 @@ export default class PortfolioForm extends Component {
     this.bannerRef = React.createRef();
     this.logoRef = React.createRef();
   }
+
+  deleteImage = imageType => {
+    console.log("delete image", imageType);
+  };
 
   componentDidUpdate = () => {
     if (Object.keys(this.props.portfolioToEdit).length > 0) {
@@ -217,6 +222,15 @@ export default class PortfolioForm extends Component {
           {this.state.thumb_image && this.state.editMode ? (
             <div className="portfolio-manager-image-wrapper">
               <img src={this.state.thumb_image} />
+
+              <div className="image-removal-link">
+                <a
+                  className="remove-icon"
+                  onClick={() => this.deleteImage("thumb_img")}
+                >
+                  <FontAwesomeIcon icon="eraser" />
+                </a>
+              </div>
             </div>
           ) : (
             <DropzoneComponent
@@ -232,6 +246,15 @@ export default class PortfolioForm extends Component {
           {this.state.banner_image && this.state.editMode ? (
             <div className="portfolio-manager-image-wrapper">
               <img src={this.state.banner_image} />
+
+              <div className="image-removal-link">
+                <a
+                  className="remove-icon"
+                  onClick={() => this.deleteImage("banner_img")}
+                >
+                  <FontAwesomeIcon icon="eraser" />
+                </a>
+              </div>
             </div>
           ) : (
             <DropzoneComponent
@@ -247,6 +270,15 @@ export default class PortfolioForm extends Component {
           {this.state.logo && this.state.editMode ? (
             <div className="portfolio-manager-image-wrapper">
               <img src={this.state.logo} />
+
+              <div className="image-removal-link">
+                <a
+                  className="remove-icon"
+                  onClick={() => this.deleteImage("logo")}
+                >
+                  <FontAwesomeIcon icon="eraser" />
+                </a>
+              </div>
             </div>
           ) : (
             <DropzoneComponent

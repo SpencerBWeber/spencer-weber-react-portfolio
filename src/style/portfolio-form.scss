@@ -15,5 +15,17 @@
       object-fit: cover;
       border-radius: 5px;
     }
+
+    .image-removal-link {
+      display: flex;
+      justify-content: center;
+
+      .remove-icon {
+        font-weight: 900;
+        font-size: 1.5em;
+        color: $warning;
+        cursor: pointer;
+      }
+    }
   }
 }
