@@ -13,8 +13,17 @@ export default class RichTextEditor extends Component {
     };
   }
 
+  getBase64 = (file, callback) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => callback(reader.result);
+    reader.onerror = error => {};
+  };
+
   uploadFile = file => {
-    console.log("uploadFile", file);
+    return new Promise((resolve, reject) => {
+      this.getBase64(file, data => resolve({ data: { link: data } }));
+    });
   };
 
   onEditorStateChange = editorState => {
