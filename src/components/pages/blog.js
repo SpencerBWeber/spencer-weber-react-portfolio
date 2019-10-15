@@ -13,11 +13,18 @@ class Blog extends Component {
       blogItems: [],
       totalCount: 0,
       currentPage: 0,
-      isLoading: true
+      isLoading: true,
+      blogModalIsOpen: false
     };
 
     window.addEventListener("scroll", this.onScroll, false);
   }
+
+  handleNewBlogClick = () => {
+    this.setState({
+      blogModalIsOpen: true
+    });
+  };
 
   onScroll = () => {
     if (
@@ -75,7 +82,12 @@ class Blog extends Component {
 
     return (
       <div className="blog-container">
-        <BlogModal />
+        <BlogModal modalIsOpen={this.state.blogModalIsOpen} />
+
+        <div className="new-blog-link">
+          <a onClick={this.handleNewBlogClick}>Open Modal!</a>
+        </div>
+
         <div className="content-container">{blogRecords}</div>
 
         {this.state.isLoading ? (
