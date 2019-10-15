@@ -16,6 +16,14 @@ export default class BlogDetail extends Component {
     };
   }
 
+  handleFeaturedImageDelete = () => {
+    this.setState({
+      blogItem: {
+        featured_image_url: ""
+      }
+    });
+  };
+
   handleEditClick = () => {
     this.setState({ editMode: true });
   };
@@ -50,7 +58,11 @@ export default class BlogDetail extends Component {
     const contentManager = () => {
       if (this.state.editMode) {
         return (
-          <BlogForm editMode={this.state.editMode} blog={this.state.blogItem} />
+          <BlogForm
+            editMode={this.state.editMode}
+            handleFeaturedImageDelete={this.handleFeaturedImageDelete}
+            blog={this.state.blogItem}
+          />
         );
       } else {
         return (

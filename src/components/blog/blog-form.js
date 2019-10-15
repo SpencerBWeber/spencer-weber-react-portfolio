@@ -20,6 +20,20 @@ export default class BlogForm extends Component {
     this.featuredImageRef = React.createRef();
   }
 
+  deleteImage = imageType => {
+    axios
+      .delete(
+        `https://api.devcamp.space/portfolio/delete-portfolio-blog-image/${this.props.blog.id}?image_type=${imageType}`,
+        { withCredentials: true }
+      )
+      .then(response => {
+        this.props.handleFeaturedImageDelete();
+      })
+      .catch(error => {
+        console.log("DeleteImage error", error);
+      });
+  };
+
   componentWillMount = () => {
     if (this.props.editMode) {
       this.setState({
@@ -144,7 +158,10 @@ export default class BlogForm extends Component {
               <img src={this.props.blog.featured_image_url} />
 
               <div className="image-removal-link">
-                <a className="remove-icon">
+                <a
+                  onClick={() => this.deleteImage("featured_image")}
+                  className="remove-icon"
+                >
                   <FontAwesomeIcon icon="eraser" />
                 </a>
               </div>
