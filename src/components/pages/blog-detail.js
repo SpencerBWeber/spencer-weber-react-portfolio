@@ -16,6 +16,13 @@ export default class BlogDetail extends Component {
     };
   }
 
+  handleUpdateFormSubmission = blog => {
+    this.setState({
+      blogItem: blog,
+      editMode: false
+    });
+  };
+
   handleFeaturedImageDelete = () => {
     this.setState({
       blogItem: {
@@ -59,6 +66,7 @@ export default class BlogDetail extends Component {
       if (this.state.editMode) {
         return (
           <BlogForm
+            handleUpdateFormSubmission={this.handleUpdateFormSubmission}
             editMode={this.state.editMode}
             handleFeaturedImageDelete={this.handleFeaturedImageDelete}
             blog={this.state.blogItem}
