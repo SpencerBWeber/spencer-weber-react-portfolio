@@ -12,25 +12,6 @@
     @include base-grid();
     grid-template-columns: 200px 200px 200px;
 
-    .portfolio-manager-image-wrapper {
-      img {
-        width: 100%;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      .image-removal-link {
-        display: flex;
-        justify-content: center;
-
-        .remove-icon {
-          font-weight: 900;
-          font-size: 1.5em;
-          color: $warning;
-          cursor: pointer;
-        }
-      }
-    }
+    @include delete-image-element();
   }
 }
