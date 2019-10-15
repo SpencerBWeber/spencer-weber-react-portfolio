@@ -13,6 +13,15 @@ export default class RichTextEditor extends Component {
     };
   }
 
+  onEditorStateChange = editorState => {
+    this.setState(
+      { editorState },
+      this.props.handleRichTextEditorChange(
+        draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
+      )
+    );
+  };
+
   render() {
     return (
       <div>
@@ -20,6 +29,7 @@ export default class RichTextEditor extends Component {
           editorState={this.state.editorState}
           wrapperClassName="demo-wrapper"
           editorClassName="demo-editor"
+          onEditorStateChange={this.onEditorStateChange}
         />
       </div>
     );
