@@ -46,7 +46,7 @@ export default class BlogDetail extends Component {
         <div className="content-container">
           <h1>{title}</h1>
 
-          <BlogFeaturedImage img={this.featured_image_url} />
+          <BlogFeaturedImage img={featured_image_url} />
 
           <div className="content">{ReactHtmlParser(content)}</div>
         </div>
