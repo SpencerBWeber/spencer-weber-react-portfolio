@@ -13,6 +13,10 @@ export default class RichTextEditor extends Component {
     };
   }
 
+  uploadFile = file => {
+    console.log("uploadFile", file);
+  };
+
   onEditorStateChange = editorState => {
     this.setState(
       { editorState },
@@ -30,6 +34,19 @@ export default class RichTextEditor extends Component {
           wrapperClassName="demo-wrapper"
           editorClassName="demo-editor"
           onEditorStateChange={this.onEditorStateChange}
+          toolbar={{
+            inline: { inDropdown: true },
+            list: { inDropdown: true },
+            textAlign: { inDropdown: true },
+            link: { inDropdown: true },
+            history: { inDropdown: true },
+            image: {
+              uploadCallback: this.uploadFile,
+              alt: { present: true, mandatory: false },
+              previewImage: true,
+              inputAccept: "image/gif,image/jpeg,image/jpg,image/png,image/svg"
+            }
+          }}
         />
       </div>
     );
