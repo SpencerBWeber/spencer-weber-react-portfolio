@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DropzoneComponent from "react-dropzone-component";
 
 import RichTextEditor from "../forms/rich-text-editor";
 
@@ -10,12 +11,34 @@ export default class BlogForm extends Component {
     this.state = {
       title: "",
       blog_status: "",
-      content: ""
+      content: "",
+      featured_image: ""
     };
   }
 
   handleRichTextEditorChange = content => {
     this.setState({ content });
+  };
+
+  componentConfig = () => {
+    return {
+      iconFiletypes: [".jpg", ".png"],
+      showFiletypeIcon: true,
+      postUrl: "https://httpbin.org/post"
+    };
+  };
+
+  djsConfig = () => {
+    return {
+      addRemoveLinks: true,
+      maxFiles: 1
+    };
+  };
+
+  handleFeaturedImageDrop = () => {
+    return {
+      addedfile: file => this.setState({ featured_image: file })
+    };
   };
 
   buildForm = () => {
@@ -80,6 +103,14 @@ export default class BlogForm extends Component {
         <div className="one-column">
           <RichTextEditor
             handleRichTextEditorChange={this.handleRichTextEditorChange}
+          />
+        </div>
+
+        <div className="image-uploaders">
+          <DropzoneComponent
+            config={this.componentConfig()}
+            djsConfig={this.djsConfig()}
+            eventHandlers={this.handleFeaturedImageDrop()}
           />
         </div>
 
