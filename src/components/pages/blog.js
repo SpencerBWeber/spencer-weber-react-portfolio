@@ -10,7 +10,15 @@ class Blog extends Component {
     this.state = {
       blogItems: []
     };
+
+    this.activateInfiniteScroll();
   }
+
+  activateInfiniteScroll = () => {
+    window.onscroll = () => {
+      console.log("onscroll");
+    };
+  };
 
   getBlogItems = () => {
     axios
