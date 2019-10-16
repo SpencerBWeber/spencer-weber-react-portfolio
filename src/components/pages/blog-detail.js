@@ -32,7 +32,9 @@ export default class BlogDetail extends Component {
   };
 
   handleEditClick = () => {
-    this.setState({ editMode: true });
+    if (this.props.loggedInStatus === "LOGGED_IN") {
+      this.setState({ editMode: true });
+    }
   };
 
   getBlogItem = () => {
@@ -63,7 +65,7 @@ export default class BlogDetail extends Component {
     } = this.state.blogItem;
 
     const contentManager = () => {
-      if (this.state.editMode) {
+      if (this.state.editMode && this.props.loggedInStatus === "LOGGED_IN") {
         return (
           <BlogForm
             handleUpdateFormSubmission={this.handleUpdateFormSubmission}
