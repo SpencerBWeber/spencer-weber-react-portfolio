@@ -14,7 +14,7 @@ export default class PortfolioForm extends Component {
       name: "",
       description: "",
       url: "",
-      category: "eCommerce",
+      category: "Frontend",
       position: "",
       thumb_image: "",
       banner_image: "",
@@ -66,7 +66,7 @@ export default class PortfolioForm extends Component {
         name: name || "",
         description: description || "",
         url: url || "",
-        category: category || "eCommerce",
+        category: category || "Frontend",
         position: position || "",
         editMode: true,
         apiUrl: `https://jingledjango.devcamp.space/portfolio/portfolio_items/${id}`,
@@ -160,7 +160,7 @@ export default class PortfolioForm extends Component {
           name: "",
           description: "",
           url: "",
-          category: "eCommerce",
+          category: "Frontend",
           position: "",
           thumb_image: "",
           banner_image: "",
@@ -215,9 +215,9 @@ export default class PortfolioForm extends Component {
             value={this.state.category}
             onChange={this.handleChange}
           >
-            <option value="eCommerce">eCommerce</option>
-            <option value="Scheduling">Scheduling</option>
-            <option value="Enterprise">Enterprise</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Fullstack">Fullstack</option>
           </select>
         </div>
         <div className="one-column">
