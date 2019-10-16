@@ -12,6 +12,15 @@
     a {
       margin-left: 15px;
       cursor: pointer;
+
+      svg {
+        color: $teal;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          color: $warning;
+        }
+      }
     }
   }
 
