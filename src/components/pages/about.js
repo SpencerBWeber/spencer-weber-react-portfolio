@@ -1,5 +1,5 @@
 import React from "react";
-import placeholderPicture from "../../../static/assets/images/bio/692166.jpg";
+import picture from "../../../static/assets/images/bio/20191017_075154.png";
 
 const About = () => {
   return (
@@ -7,7 +7,7 @@ const About = () => {
       <div
         className="left-column"
         style={{
-          background: "url(" + placeholderPicture + ") no-repeat",
+          background: "url(" + picture + ") no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
