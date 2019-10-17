@@ -79,13 +79,16 @@ export default class PortfolioContainer extends Component {
             ALL
           </button>
         </div>
-        {this.state.isLoading ? (
-          <div className="content-loader">
-            <FontAwesomeIcon icon="spinner" spin />
-          </div>
-        ) : (
-          <div className="portfolio-items-wrapper">{this.PortfolioItems()}</div>
-        )}
+
+        <div className="portfolio-items-wrapper">
+          {this.state.isLoading ? (
+            <div className="content-loader">
+              <FontAwesomeIcon icon="spinner" spin />
+            </div>
+          ) : (
+            this.PortfolioItems()
+          )}
+        </div>
       </div>
     );
   }
